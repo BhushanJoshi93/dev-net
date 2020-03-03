@@ -1,0 +1,57 @@
+import React from 'react';
+import { Link, Redirect } from 'react-router-dom';
+import { connect } from 'react-redux';
+import PropTypes from 'prop-types';
+
+const Landing = ({ isAuthenticated }) => {
+  if (isAuthenticated) {
+    return <Redirect to='/dashboard' />;
+  }
+
+  return (
+    <section className='landing'>
+      <div className='dark-overlay'>
+        <div className='landing-inner'>
+          <h1 className='x-large'>Developer Network</h1>
+          <p className='lead'>
+            Create a your portfolio, share posts and get help from other developers on the platform
+          </p>
+          <div className='buttons'>
+            <Link to='/register' className='btn btn-primary'>
+              Sign Up
+            </Link>
+            <Link to='/login' className='btn btn-light'>
+              Login
+            </Link>
+          </div>
+
+          <div style={{position:'absolute',bottom:'0px'}}>
+          <p style={{fontSize:'10px'}}>
+           A sample Project by Bhushan Joshi for demonstration of React,Redux and complete MERN Stack.
+           
+          </p>
+          <p style={{fontSize:'10px'}}>
+           Inspiration Taken from Brad Traversy's MERN stack course [Udemy].
+          </p>
+
+          </div>
+         
+        </div>
+
+       
+
+      </div>
+      
+    </section>
+  );
+};
+
+Landing.propTypes = {
+  isAuthenticated: PropTypes.bool
+};
+
+const mapStateToProps = state => ({
+  isAuthenticated: state.auth.isAuthenticated
+});
+
+export default connect(mapStateToProps)(Landing);
