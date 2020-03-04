@@ -12,6 +12,7 @@
   },
   "author": "Bhushan Joshi",
   "dependencies": {
+    "acorn": "^7.1.1",
     "bcryptjs": "^2.4.3",
     "client": "file:client",
     "config": "^3.2.5",
@@ -22,9 +23,6 @@
     "mongoose": "^5.8.10",
     "normalize-url": "^5.0.0",
     "request": "^2.88.0"
-  },
-  "engines": {
-    "node": "12.14.0"
   },
   "devDependencies": {
     "concurrently": "^5.1.0",
